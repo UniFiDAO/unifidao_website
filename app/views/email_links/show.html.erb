@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @email_link.token %>
+</p>
+
+<p>
+  <strong>Expires at:</strong>
+  <%= @email_link.expires_at %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @email_link.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_email_link_path(@email_link) %> |
+<%= link_to 'Back', email_links_path %>

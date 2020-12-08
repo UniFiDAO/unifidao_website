@@ -1,0 +1,32 @@
+<%= form_with(model: email_link, local: true) do |form| %>
+  <% if email_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(email_link.errors.count, "error") %> prohibited this email_link from being saved:</h2>
+
+      <ul>
+        <% email_link.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :token %>
+    <%= form.text_field :token %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expires_at %>
+    <%= form.datetime_select :expires_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
