@@ -1,64 +1,30 @@
 class EmailLinksController < ApplicationController
-  before_action :set_email_link, only: [:show, :edit, :update, :destroy]
-
-  # GET /email_links
-  # GET /email_links.json
-  def index
-    @email_links = EmailLink.all
-  end
-
-  # GET /email_links/1
-  # GET /email_links/1.json
-  def show
-  end
-
-  # GET /email_links/new
   def new
-    @email_link = EmailLink.new
+
   end
 
-  # GET /email_links/1/edit
-  def edit
-  end
-
-  # POST /email_links
-  # POST /email_links.json
   def create
-    @email_link = EmailLink.new(email_link_params)
+    @email_link = EmailLink.generate(params[:email])
 
-    respond_to do |format|
-      if @email_link.save
-        format.html { redirect_to @email_link, notice: 'Email link was successfully created.' }
-        format.json { render :show, status: :created, location: @email_link }
-      else
-        format.html { render :new }
-        format.json { render json: @email_link.errors, status: :unprocessable_entity }
-      end
+    if @email_link
+      flash[:notice] = "Email sent! Please, check your inbox."
+      redirect_to root_path
+    else
+      flash[:alert] = "There was an error, please try again!"
+      redirect_to new_magic_link_path
     end
   end
 
-  # PATCH/PUT /email_links/1
-  # PATCH/PUT /email_links/1.json
-  def update
-    respond_to do |format|
-      if @email_link.update(email_link_params)
-        format.html { redirect_to @email_link, notice: 'Email link was successfully updated.' }
-        format.json { render :show, status: :ok, location: @email_link }
-      else
-        format.html { render :edit }
-        format.json { render json: @email_link.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  def validate
+    email_link = EmailLink.where(token: params[:token]).where("expires_at > ?", DateTime.now).first
 
-  # DELETE /email_links/1
-  # DELETE /email_links/1.json
-  def destroy
-    @email_link.destroy
-    respond_to do |format|
-      format.html { redirect_to email_links_url, notice: 'Email link was successfully destroyed.' }
-      format.json { head :no_content }
+    unless email_link
+      flash[:alert] = "Invalid or expired token!"
+      redirect_to new_magic_link_path
     end
+
+    sign_in(email_link.user, scope: :user)
+    redirect_to root_path
   end
 
   private
