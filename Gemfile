@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'bootstrap', '~> 5.0.0.alpha3'
+
+
 group :development, :test do
   gem 'letter_opener', '~> 1.7'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
