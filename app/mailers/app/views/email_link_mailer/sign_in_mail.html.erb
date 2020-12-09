@@ -1,0 +1,4 @@
+<p>Hello, <%= @user.email %>!</p>
+<p>Below is a link to login into your account.</p>
+
+<%= link_to "Sign in to my account", email_link_url(token: @token) %>
