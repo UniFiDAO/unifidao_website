@@ -2,6 +2,6 @@
   <p>Hello, <%= current_user.email %></p>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
-  <p>Hey, Sign In with Magic Links!</p>
-  <%= link_to "Click here", new_magic_link_path %>
+
+  <%= link_to "Sign Up", new_user_registration_path %>&nbsp<%= link_to "Sign In", new_email_link_path %>
 <% end %>

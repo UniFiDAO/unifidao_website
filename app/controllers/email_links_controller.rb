@@ -10,8 +10,8 @@ class EmailLinksController < ApplicationController
       flash[:notice] = "Email sent! Please, check your inbox."
       redirect_to root_path
     else
-      flash[:alert] = "There was an error, please try again!"
-      redirect_to new_magic_link_path
+      flash[:alert] = "Email doesn't exist."
+      redirect_to new_email_link_path
     end
   end
 
