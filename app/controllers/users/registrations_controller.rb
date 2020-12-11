@@ -6,14 +6,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @investor = params.has_key?("investor")
     super
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+
+    EmailLink.generate_welcome(current_user.email)
+    sign_out
+    flash[:notice] = "Welcome! We have sent you an email with further instructions."
+  end
 
   # GET /resource/edit
   # def edit

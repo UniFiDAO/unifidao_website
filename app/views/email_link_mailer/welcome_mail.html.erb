@@ -1,0 +1,5 @@
+<p>Hello, <%= @user.email %>!</p>
+<p>Welcome to UniFiDAO.</p>
+<% @email_link.update(path: edit_user_url(@user)) %>
+
+<%= link_to "Sign in to my account, and setup.", email_link_url(@email_link) %>

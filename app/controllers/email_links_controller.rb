@@ -20,19 +20,21 @@ class EmailLinksController < ApplicationController
   def show
     unless @email_link
       flash[:alert] = "Invalid or expired token!"
-      redirect_to new_magic_link_path
+      return redirect_to new_email_link_path
     end
 
-    sign_in(email_link.user, scope: :user)
+    sign_in(@email_link.user, scope: :user)
+    redirect_path = @email_link.path || root_path
 
-    email_link.destroy
-    redirect_to root_path
+    @email_link.destroy
+
+    redirect_to redirect_path
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_email_link
-      @email_link = EmailLink.find(params[:id])
+      @email_link = EmailLink.find_by(id: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
@@ -40,3 +42,4 @@ class EmailLinksController < ApplicationController
       params.require(:email_link).permit(:token, :expires_at, :user_id)
     end
 end
+#http://localhost:3000/email_links/EmailLink
