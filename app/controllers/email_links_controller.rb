@@ -1,4 +1,6 @@
 class EmailLinksController < ApplicationController
+  before_action :set_email_link, only: [:show]
+
   def new
 
   end
@@ -15,15 +17,15 @@ class EmailLinksController < ApplicationController
     end
   end
 
-  def validate
-    email_link = EmailLink.where(token: params[:token]).where("expires_at > ?", DateTime.now).first
-
-    unless email_link
+  def show
+    unless @email_link
       flash[:alert] = "Invalid or expired token!"
       redirect_to new_magic_link_path
     end
 
     sign_in(email_link.user, scope: :user)
+
+    email_link.destroy
     redirect_to root_path
   end
 

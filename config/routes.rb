@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :email_links do
-    get "validate", on: :collection
-  end
+  resources :email_links
 
   get 'welcome/index'
 
