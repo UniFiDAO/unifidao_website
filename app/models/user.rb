@@ -4,6 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #class
-  enum user_type:  { team: "team", investor: "investor" }
+  enum user_type:  { admin: "admin", team: "team", investor: "investor" }
 end

@@ -8,18 +8,74 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+<!--  :user_type, :name, :fund, :website, :partner, :linkedin, :twitter, :telegram-->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <% if @investor %>
+    <%= f.hidden_field :user_type, value: "investor" %>
+
+    <div class="field">
+      <%= f.label "Fund Name" %><br />
+      <%= f.text_field :name%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Website" %><br />
+      <%= f.text_field :website%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Partner Name" %><br />
+      <%= f.text_field :partner%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Linked In" %><br />
+      <%= f.text_field :linkedin%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Twitter" %><br />
+      <%= f.text_field :twitter%>
+    </div>
+  <% else %>
+    <%= f.hidden_field :user_type, value: "team" %>
+
+    <div class="field">
+      <%= f.label "Project Name" %><br />
+      <%= f.text_field :name%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Website" %><br />
+      <%= f.text_field :website%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Twitter" %><br />
+      <%= f.text_field :twitter%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Telegram" %><br />
+      <%= f.text_field :telegram%>
+    </div>
+  <% end %>
+
+  <% random_string = SecureRandom.hex %>
+  <%= f.hidden_field :password, value: random_string %>
+  <%= f.hidden_field :password_confirmation, value: random_string %>
+<!--  <div class="field">-->
+    <%#= f.label :password %>
+    <%# if @minimum_password_length %>
+<!--    <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+<!--    <%# end %><br />-->
+    <%#= f.password_field :password, autocomplete: "new-password" %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+<!--    <%#= f.label :password_confirmation %><br />-->
+    <%#= f.password_field :password_confirmation, autocomplete: "new-password" %>
+<!--  </div>-->
 
   <div class="actions">
     <%= f.submit "Sign up" %>
