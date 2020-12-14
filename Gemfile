@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'bootstrap', '~> 5.0.0.alpha3'
-
+gem 'friendly_id', '~> 5.4.0'
 
 group :development, :test do
   gem 'letter_opener', '~> 1.7'
