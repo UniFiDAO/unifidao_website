@@ -27,6 +27,11 @@
       <%= f.label "Twitter" %><br />
       <%= f.text_field :twitter%>
     </div>
+
+    <div class="field">
+      <%= f.label "Logo" %><br />
+      <%= f.file_field :logo %>
+    </div>
   <% else %>
     <h2>Team</h2>
     <%= f.hidden_field :user_type, value: "team" %>
@@ -49,6 +54,11 @@
     <div class="field">
       <%= f.label "Telegram" %><br />
       <%= f.text_field :telegram%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Logo" %><br />
+      <%= f.file_field :logo %>
     </div>
   <% end %>
 
