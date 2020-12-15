@@ -1,8 +1,30 @@
-<% if user_signed_in? %>
-  <p>Hello, <%= current_user.email %></p>
-  <%= link_to "Profile", edit_user_path(current_user) %>
-  <%= link_to "Events", events_path %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign Up", new_user_registration_path %>&nbsp<%= link_to "Sign In", new_email_link_path %>
-<% end %>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1>For Interchain Teams and Crypto Investors<br></h1><br><br>
+
+        <ul>
+          <li><h3>Connect to interchain DeFi Projects and Crypto Investors building the next wave of decentralized finance.</h3><br></li>
+          <li><h3>Invest in the best blockchain projects that are growing fast</h3><br></li>
+          <li><h3>See demos of the latest interchain projects</h3><br></li>
+        </ul>
+
+      </div>
+      <div class="col-lg-6" style="margin: auto;">
+        <div style="text-align: center;margin: auto;">
+        <%= button_to 'Join the UniFI DAO', new_user_registration_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# if user_signed_in? %>
+<!--  <p>Hello, <%#= current_user.email %></p>-->
+  <%#= link_to "Profile", edit_user_path(current_user) %>
+  <%#= link_to "Events", events_path %>
+  <%#= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<%# else %>
+<!--  <%#= link_to "Sign Up", new_user_registration_path %>&nbsp<%#= link_to "Sign In", new_email_link_path %>-->
+<%# end %>

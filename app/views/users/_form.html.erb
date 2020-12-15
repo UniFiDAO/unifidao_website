@@ -1,68 +1,75 @@
-<%= form_with(model: user, local: true) do |f| %>
-  <% if user.user_type == "investor" %>
-    <h2>Investor</h2>
-    <%= f.hidden_field :user_type, value: "investor" %>
 
-    <div class="field">
-      <%= f.label "Fund Name" %><br />
-      <%= f.text_field :name%>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <%= form_with(model: user, local: true) do |f| %>
+        <% if user.user_type == "investor" %>
+          <h2>Investor</h2>
+          <%= f.hidden_field :user_type, value: "investor" %>
+
+          <div class="field">
+            <%= f.label "Fund Name" %><br />
+            <%= f.text_field :name, class: "form-control", style: "width:300px;", placeholder: "Registration Email Address" %>
+          </div>
+
+          <div class="field">
+            <%= f.label "Website" %><br />
+            <%= f.text_field :website, class: "form-control", style: "width:300px;", placeholder: "Registration Email Address" %>
+          </div>
+
+          <div class="field">
+            <%= f.label "Partner Name" %><br />
+            <%= f.text_field :partner , class: "form-control", style: "width:300px;", placeholder: "Registration Email Address"%>
+          </div>
+
+          <div class="field">
+            <%= f.label "Linked In" %><br />
+            <%= f.text_field :linkedin, class: "form-control", style: "width:300px;", placeholder: "Registration Email Address"%>
+          </div>
+
+          <div class="field">
+            <%= f.label "Twitter" %><br />
+            <%= f.text_field :twitter, class: "form-control", style: "width:300px;", placeholder: "Registration Email Address"%>
+          </div>
+
+          <div class="field">
+            <%= f.label "Logo" %><br />
+            <%= f.file_field :logo, class: "form-control", style: "width:300px;", placeholder: "Registration Email Address" %>
+          </div>
+        <% else %>
+          <h2>Team</h2>
+          <%= f.hidden_field :user_type, value: "team" %>
+
+          <div class="field">
+            <%= f.label "Project Name" %><br />
+            <%= f.text_field :name, class: "form-control", style: "width:300px;", placeholder: "Registration Email Address"%>
+          </div>
+
+          <div class="field">
+            <%= f.label "Website" %><br />
+            <%= f.text_field :website, class: "form-control", style: "width:300px;", placeholder: "Registration Email Address"%>
+          </div>
+
+          <div class="field">
+            <%= f.label "Twitter" %><br />
+            <%= f.text_field :twitter, class: "form-control", style: "width:300px;", placeholder: "Registration Email Address"%>
+          </div>
+
+          <div class="field">
+            <%= f.label "Telegram" %><br />
+            <%= f.text_field :telegram, class: "form-control", style: "width:300px;", placeholder: "Registration Email Address"%>
+          </div>
+
+          <div class="field">
+            <%= f.label "Logo" %><br />
+            <%= f.file_field :logo %>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "Complete Registration", class: 'btn btn-primary btn-lg' %>
+        </div>
+      <% end %>
     </div>
-
-    <div class="field">
-      <%= f.label "Website" %><br />
-      <%= f.text_field :website%>
-    </div>
-
-    <div class="field">
-      <%= f.label "Partner Name" %><br />
-      <%= f.text_field :partner%>
-    </div>
-
-    <div class="field">
-      <%= f.label "Linked In" %><br />
-      <%= f.text_field :linkedin%>
-    </div>
-
-    <div class="field">
-      <%= f.label "Twitter" %><br />
-      <%= f.text_field :twitter%>
-    </div>
-
-    <div class="field">
-      <%= f.label "Logo" %><br />
-      <%= f.file_field :logo %>
-    </div>
-  <% else %>
-    <h2>Team</h2>
-    <%= f.hidden_field :user_type, value: "team" %>
-
-    <div class="field">
-      <%= f.label "Project Name" %><br />
-      <%= f.text_field :name%>
-    </div>
-
-    <div class="field">
-      <%= f.label "Website" %><br />
-      <%= f.text_field :website%>
-    </div>
-
-    <div class="field">
-      <%= f.label "Twitter" %><br />
-      <%= f.text_field :twitter%>
-    </div>
-
-    <div class="field">
-      <%= f.label "Telegram" %><br />
-      <%= f.text_field :telegram%>
-    </div>
-
-    <div class="field">
-      <%= f.label "Logo" %><br />
-      <%= f.file_field :logo %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
-<% end %>
+</div>

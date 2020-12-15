@@ -1,47 +1,54 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-        <% event.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <%= form_with(model: event, local: true) do |form| %>
+        <% if event.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+            <ul>
+              <% event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title, class: "form-control", style: "width:300px;", placeholder: "" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :starts_at %>
+          <%= form.datetime_select :starts_at %>
+        </div>
+
+        <div class="field">
+          <%= form.label :duration %>
+          <%= form.number_field :duration, class: "form-control", style: "width:300px;", placeholder: "" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_field :description, class: "form-control", style: "width:300px;", placeholder: "" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :link %>
+          <%= form.text_field :link, class: "form-control", style: "width:300px;", placeholder: "" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "Logo" %><br />
+          <%= f.file_field :logo %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit "Complete Registration", class: 'btn btn-primary btn-lg' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
   </div>
-
-  <div class="field">
-    <%= form.label :starts_at %>
-    <%= form.datetime_select :starts_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.number_field :duration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :link %>
-    <%= form.text_field :link %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Logo" %><br />
-    <%= f.file_field :logo %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
