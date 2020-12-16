@@ -16,7 +16,7 @@
         <% end %>
 
         <div class="field">
-          <%= form.label :title %>
+          <%= form.label "Event Title" %>
           <%= form.text_field :title, class: "form-control", style: "width:300px;", placeholder: "" %>
         </div>
 
@@ -32,21 +32,21 @@
 
         <div class="field">
           <%= form.label :description %>
-          <%= form.text_field :description, class: "form-control", style: "width:300px;", placeholder: "" %>
+          <%= form.text_area :description, class: "form-control", style: "width:300px;", rows: "3" %>
         </div>
 
         <div class="field">
           <%= form.label :link %>
-          <%= form.text_field :link, class: "form-control", style: "width:300px;", placeholder: "" %>
+          <%= form.text_field :link, class: "form-control", style: "width:300px;" %>
         </div>
 
         <div class="field">
-          <%= f.label "Logo" %><br />
-          <%= f.file_field :logo %>
+          <%= form.label "Logo" %><br />
+          <%= form.file_field :logo, class: "form-control-file"  %>
         </div>
 
         <div class="actions">
-          <%= form.submit "Complete Registration", class: 'btn btn-primary btn-lg' %>
+          <%= form.submit "Publish Event", class: 'btn btn-primary btn-lg' %>
         </div>
       <% end %>
     </div>

@@ -1,29 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Starts at:</strong>
-  <%= @event.starts_at %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @event.duration %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @event.link %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <br>
+      <hr>
+      <h1><%= @event.title %></h1>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <% if @event.logo.attached? %>
+        <%= image_tag @user.logo %>
+      <% end %>
+    </div>
+    <div class="col-lg-6">
+      <h3><%= @event.description %></h3>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<%= form_with(model: user, local: true) do |f| %>
+  <%= f.hidden_field :user_type, value: "investor" %>
+
+  <div class="field">
+    <%= f.text_field :name, class: "form-control", style: "width:300px;", placeholder: "Fund Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :website, class: "form-control", style: "width:300px;", placeholder: "Website" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :partner , class: "form-control", style: "width:300px;", placeholder: "Partner Name"%>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :linkedin, class: "form-control", style: "width:300px;", placeholder: "Linked In"%>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :twitter, class: "form-control", style: "width:300px;", placeholder: "Twitter"%>
+  </div>
+
+  <div class="field">
+    <%= f.label "Logo" %>&nbsp;<%= f.file_field :logo, class: "form-control-file"  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Complete Registration", class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
