@@ -24,7 +24,7 @@ class EmailLinksController < ApplicationController
     end
 
     sign_in(@email_link.user, scope: :user)
-    redirect_path = @email_link.path || root_path
+    redirect_path = @email_link.path || events_path
 
     @email_link.destroy
 
@@ -42,4 +42,4 @@ class EmailLinksController < ApplicationController
       params.require(:email_link).permit(:token, :expires_at, :user_id)
     end
 end
-#http://localhost:3000/email_links/EmailLink
+

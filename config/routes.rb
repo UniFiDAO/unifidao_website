@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   resources :events
   resources :email_links
 
+  resources :admins do
+    get 'users', on: :collection
+    get 'events', on: :collection
+  end
+
   get 'welcome/index'
 
   #devise_for :users

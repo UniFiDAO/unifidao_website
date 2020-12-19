@@ -14,14 +14,12 @@
   </div>
 
   <div class="field">
-    <%= f.text_field :telegram, class: "form-control", style: "width:300px;", placeholder: "Telegram"%>
+    <%= f.text_field :telegram, class: "form-control", style: "width:300px;", placeholder: "Telegram" %>
   </div>
 
   <div class="field">
-    <%= f.label "Logo" %>&nbsp;
-    <%= f.file_field :logo, class: "form-control-file" %>
+    <%= f.label "Logo" %>&nbsp;<%= f.file_field :logo, class: "form-control-file"  %>
   </div>
-  <% end %>
 
   <div class="actions">
     <%= f.submit "Complete Registration", class: 'btn btn-primary btn-lg' %>
