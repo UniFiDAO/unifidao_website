@@ -11,9 +11,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    user = User.find_by(email: params[:user][:email])
+
+    if user
+      @email_link = EmailLink.generate(user.email)
+      flash[:notice] = "Email sent! Please, check your inbox."
+      return redirect_to root_path
+    end
+
     super
 
-    EmailLink.generate_welcome(current_user.email)
+    user ||= current_user
+
+    return unless user
+
+    EmailLink.generate_welcome(user.email)
     sign_out
     flash[:notice] = "Welcome! We have sent you an email with further instructions."
   end

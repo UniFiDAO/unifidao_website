@@ -7,7 +7,7 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
 
-          <%= f.radio_button :user_type, 'team' %> Register as Cosmos Start Up Team<br /><br />
+          <%= f.radio_button :user_type, 'team', checked: true %> Register as Cosmos Start Up Team<br /><br />
           <%= f.radio_button :user_type, 'investor' %> Register as Investor<br /><br />
 
           <div class="field">

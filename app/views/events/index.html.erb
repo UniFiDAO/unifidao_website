@@ -3,6 +3,9 @@
     <div class="col-lg-12">
       <br>
       <h1>Upcomming Events</h1>
+      <% if current_user&.admin? %>
+        <h2><%= link_to 'New Event', new_event_path %></h2>
+      <% end %>
       <br>
     </div>
   </div>
@@ -20,9 +23,6 @@
       </div>
     </div>
     <br>
-  <% end %>
-  <% if current_user&.admin? %>
-    <%= link_to 'New Event', new_event_path %>
   <% end %>
 </div>
 
