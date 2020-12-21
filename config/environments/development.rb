@@ -60,7 +60,13 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
- config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  if (ENV["FORCE_SSL"] == 'TRUE')
+    config.force_ssl = true
+    config.action_mailer.default_url_options = { host: 'unifidao.vc', :protocol => 'https' }
+  end
+
   # config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
@@ -74,5 +80,7 @@ Rails.application.configure do
           password: ENV["GMAIL_PASSWORD"]
       }
   config.action_mailer.smtp_settings = smtp_settings
+
+
 
 end
