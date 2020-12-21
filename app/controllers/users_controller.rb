@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to events_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         return redirect_to users_admins_path if current_user_admin?
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to events_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
