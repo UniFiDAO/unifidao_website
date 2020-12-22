@@ -5,10 +5,17 @@
         <br><br>
         <h2>Choose your profile to Join the DAO</h2>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+          <% if resource.errors.any? %>
+            <div class="alert alert-danger" role="alert">
+            <% resource.errors.full_messages.each do |message| %>
 
-          <%= f.radio_button :user_type, 'team', checked: true %> Register as Cosmos Start Up Team<br /><br />
-          <%= f.radio_button :user_type, 'investor' %> Register as Investor<br /><br />
+                <h6><%= message.sub("User type ","") %></h6>
+            <% end %>
+            </div>
+          <% end %>
+
+          <%= f.radio_button :user_type, 'team' %>&nbsp;Register as Cosmos Start Up Team<br /><br />
+          <%= f.radio_button :user_type, 'investor' %>&nbsp;Register as Investor<br /><br />
 
           <div class="field">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", style: "width:300px;", placeholder: "Registration Email Address" %>

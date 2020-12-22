@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     EmailLink.generate_welcome(user.email)
     sign_out
-    flash[:notice] = "Welcome! We have sent you an email with further instructions."
+    # lash[:notice] = "Welcome! We have sent you an email with further instructions."
   end
 
   # GET /resource/edit
@@ -68,9 +68,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    welcome_new_path
+    #super(resource)
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

@@ -1,10 +1,37 @@
 
-<% @user.name %>
+<%# @user.name %>
 
-<% if @user.logo.attached? %>
-  <%= image_tag @user.logo %>
-<% end %>
+<%# if @user.logo.attached? %>
+  <%#= image_tag @user.logo %>
+<%# end %>
 
+
+
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-lg-12">-->
+<!--      <br>-->
+<!--      <hr>-->
+<!--      <h1><%#= @user.name %></h1>-->
+<!--      <br>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <div class="col-lg-6">-->
+      <%# if @user.logo.attached? %>
+        <%#= image_tag @user.logo %>
+      <%# end %>
+<!--    </div>-->
+<!--    <div class="col-lg-6">-->
+<!--      <h3><%#= @user.fund %></h3>-->
+<!--      <h3><%#= @user.website %></h3>-->
+<!--      <h3><%#= @user.partner %></h3>-->
+<!--      <h3><%#= @user.linkedin %></h3>-->
+<!--      <h3><%#= @user.twitter %></h3>-->
+<!--      <h3><%#= @user.telegram %></h3>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 
 <div class="container">
@@ -16,19 +43,29 @@
       <br>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-6">
+  <div class="row" style="background-color: #ddd;padding: 20px;">
+    <div class="col-lg-6"  >
       <% if @user.logo.attached? %>
-        <%= image_tag @user.logo %>
+        <%= image_tag @user.logo, width: "100%" %>
       <% end %>
     </div>
     <div class="col-lg-6">
-      <h3><%= @user.fund %></h3>
-      <h3><%= @user.website %></h3>
-      <h3><%= @user.partner %></h3>
-      <h3><%= @user.linkedin %></h3>
-      <h3><%= @user.twitter %></h3>
-      <h3><%= @user.telegram %></h3>
+      <div class="card">
+        <div class="card-body">
+          <h3><%= @user.name %></h3>
+          <% if @user.website %><h4><%= link_to 'Website', @user.website %></h4><% end %>
+          <% if @user.partner %><h4>Partner: <%= @user.partner %></h4><% end %>
+          <% if @user.linkedin %><h4><%= link_to 'LinkedIn', @user.linkedin %></h4><% end %>
+          <% if @user.twitter %><h4><%= link_to 'Twitter', @user.twitter %></h4><% end %>
+          <% if @user.telegram %><h4><%= link_to 'Telegram', @user.telegram %></h4><% end %>
+        </div>
+      </div>
+      <% unless user_signed_in? %>
+        <center><br><br><br>
+          <%= button_to 'Join the UniFI DAO', new_user_registration_path, :method => :get,  :class => "btn btn-primary btn-lg"%><br>
+          <%= button_to 'Sign In', new_email_link_path, :method => :get,  :class => "btn btn-secondary btn-lg"%>
+        </center>
+      <% end %>
     </div>
   </div>
 </div>

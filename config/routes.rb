@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   get 'welcome/index'
+  get 'welcome/new'
 
   #devise_for :users
   devise_for :users, controllers: {
@@ -20,7 +21,8 @@ Rails.application.routes.draw do
       passwords: 'users/passwords'
   }
 
-  resources :users
+  resources :users, :path => :teams, as: :users
+  #resources :teams, as: :users
 
   root 'welcome#index'
 end
