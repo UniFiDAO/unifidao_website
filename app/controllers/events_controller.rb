@@ -1,6 +1,9 @@
+#require 'icalendar'
+
 class EventsController < ApplicationController
+
   before_action :requires_admin, only: [:new, :edit, :update, :destroy]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :ical]
 
 
   # GET /events
@@ -12,6 +15,20 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+  end
+
+  def ical
+    cal = Icalendar::Calendar.new
+    event = Icalendar::Event.new
+    event.dtstart = @event.starts_at
+    event.dtend =@event.starts_at + @event.duration.hours
+    event.summary = @event.description
+    event.uid = event.url = event_url(@event)
+    cal.add_event(event)
+    cal.publish
+
+    render plain:  cal.to_ical
+    #send_data cal.to_ical, type: 'ical', disposition: 'inline', filename: 'event.ical'
   end
 
   # GET /events/new
@@ -72,6 +89,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :starts_at, :duration, :description, :link)
+      params.require(:event).permit(:title, :starts_at, :duration, :description, :link, :logo)
     end
 end

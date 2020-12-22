@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events do
+    get 'ical', on: :member
+  end
+
   resources :email_links
 
   resources :admins do

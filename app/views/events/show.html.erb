@@ -3,18 +3,37 @@
     <div class="col-lg-12">
       <br>
       <hr>
+      <%= @event.starts_at.strftime("%A, %B %e") %>
       <h1><%= @event.title %></h1>
       <br>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-6">
+  <div class="row" style="background-color: #ddd;padding: 20px;">
+    <div class="col-lg-6"  >
       <% if @event.logo.attached? %>
-        <%= image_tag @user.logo %>
+        <%= image_tag @event.logo, width: "100%" %>
       <% end %>
     </div>
     <div class="col-lg-6">
-      <h3><%= @event.description %></h3>
+      <div class="card">
+        <div class="card-body">
+          <%= @event.starts_at.strftime("%A, %B %e") %><br>
+          <%= @event.starts_at.strftime("%l:%M %p") %> to <%= (@event.starts_at + @event.duration.hours).strftime("%l:%M %p") %><br>
+          <%= link_to "Add to Calender", ical_event_url(@event, protocol: :webcal, format: :ics) , format: :ics %>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <div class="card-body">
+          <h3><%= @event.description %></h3>
+        </div>
+      </div>
+      <% unless user_signed_in? %>
+        <center><br><br><br>
+          <%= button_to 'Join the UniFI DAO', new_user_registration_path, :method => :get,  :class => "btn btn-primary btn-lg"%><br>
+          <%= button_to 'Sign In', new_email_link_path, :method => :get,  :class => "btn btn-secondary btn-lg"%>
+        </center>
+      <% end %>
     </div>
   </div>
 </div>
