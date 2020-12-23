@@ -9,11 +9,10 @@ class EmailLinksController < ApplicationController
     @email_link = EmailLink.generate(params[:email])
 
     if @email_link
-      flash[:notice] = "Email sent! Please, check your inbox."
-      redirect_to root_path
+      redirect_to welcome_check_path
     else
-      flash[:alert] = "Email doesn't exist."
-      redirect_to new_email_link_path
+      flash[:alert] = "Please create an account."
+      redirect_to new_user_registration_path
     end
   end
 

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    redirect_to welcome_index_path
+    @users = User.team
   end
 
   # GET /users/1
@@ -55,6 +55,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    #@user.email_links.destroy_all
     @user.destroy
     respond_to do |format|
       format.html { redirect_back fallback_location: users_url, notice: 'User was successfully destroyed.' }

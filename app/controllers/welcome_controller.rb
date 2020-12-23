@@ -6,4 +6,8 @@ class WelcomeController < ApplicationController
   def new
 
   end
+
+  def check
+
+  end
 end

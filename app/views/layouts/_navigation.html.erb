@@ -7,6 +7,7 @@
         <% if user_signed_in? %>
           <li class='nav-item'><%= link_to (current_user&.name || "Profile"), user_path(current_user), class: 'nav-link'  %></li>
           <li class='nav-item'><%= link_to "Events", events_path, class: 'nav-link'  %></li>
+          <li class='nav-item'><%= link_to "Teams", users_path, class: 'nav-link'  %></li>
           <% if current_user.admin? %>
             <li class='nav-item'><%= link_to "Admin Events", events_admins_path, class: 'nav-link'  %></li>
             <li class='nav-item'><%= link_to "Admin Teams", users_admins_path, class: 'nav-link'  %></li>
@@ -14,6 +15,7 @@
           <li class='nav-item'><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link'  %></li>
         <% else %>
           <li class='nav-item'><%= link_to "Events", events_path, class: 'nav-link'  %></li>
+          <li class='nav-item'><%= link_to "Teams", users_path, class: 'nav-link'  %></li>
           <li class='nav-item'><%= link_to "Sign In", new_email_link_path, class: 'nav-link'  %></li>
         <% end %>
       </ul>

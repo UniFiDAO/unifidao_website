@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   get 'welcome/new'
+  get 'welcome/check'
 
   #devise_for :users
   devise_for :users, controllers: {

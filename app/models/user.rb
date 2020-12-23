@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   enum user_type:  { admin: "admin", team: "team", investor: "investor" }
 
+  has_many :email_links, dependent: :delete_all
+
 
   validates_presence_of :user_type, message: 'Please choose a team type.'
 end
