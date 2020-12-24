@@ -8,6 +8,7 @@
           <li class='nav-item'><%= link_to (current_user&.name || "Profile"), user_path(current_user), class: 'nav-link'  %></li>
           <li class='nav-item'><%= link_to "Events", events_path, class: 'nav-link'  %></li>
           <li class='nav-item'><%= link_to "Teams", users_path, class: 'nav-link'  %></li>
+          <li class='nav-item'><%= link_to "Community", "https://t.me/unificosmos", class: 'nav-link', target: :_blank  %></li>
           <% if current_user.admin? %>
             <li class='nav-item'><%= link_to "Admin Events", events_admins_path, class: 'nav-link'  %></li>
             <li class='nav-item'><%= link_to "Admin Teams", users_admins_path, class: 'nav-link'  %></li>
@@ -17,6 +18,7 @@
           <li class='nav-item'><%= link_to "Events", events_path, class: 'nav-link'  %></li>
           <li class='nav-item'><%= link_to "Teams", users_path, class: 'nav-link'  %></li>
           <li class='nav-item'><%= link_to "Sign In", new_email_link_path, class: 'nav-link'  %></li>
+          <li class='nav-item'><%= link_to "Community", "https://t.me/unificosmos", class: 'nav-link', target: :_blank  %></li>
         <% end %>
       </ul>
     </div>
