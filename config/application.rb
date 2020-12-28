@@ -16,9 +16,13 @@ module Website
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.time_zone = 'Pacific Time (US & Canada)'
+
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
 
 ActionView::Base.field_error_proc = proc do |html_tag, instance|
   html_tag.gsub("form-control", "form-control is-invalid").html_safe
 end
+
+

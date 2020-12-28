@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span>
-    </button> <%= link_to "UniFi DAO", root_path, class: 'navbar-brand' %>
+    </button>
+    <%#= image_tag 'logo.jpg', height: "20px"%>
+    <%= link_to "UniFi DAO", root_path, class: 'navbar-brand' %>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav mr-auto">
         <% if user_signed_in? %>
