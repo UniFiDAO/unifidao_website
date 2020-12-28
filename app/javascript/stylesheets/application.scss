@@ -1,6 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
 
+@viewport {
+  width: device-width;
+  zoom: 2.5%;
+  min-zoom: 1.0;
+  max-zoom: 3;
+  user-zoom: fixed;
+}
 
 @font-face {
   font-family: 'Feather';
