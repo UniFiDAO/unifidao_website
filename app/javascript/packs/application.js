@@ -19,3 +19,6 @@ require("channels")
 import "bootstrap"
 import "../stylesheets/application"
 
+//= require turbolinks
+//= require jquery
+//= require jquery_ujs
