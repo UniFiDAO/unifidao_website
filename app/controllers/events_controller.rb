@@ -22,6 +22,7 @@ class EventsController < ApplicationController
     event = Icalendar::Event.new
     event.dtstart = @event.starts_at
     event.dtend =@event.starts_at + @event.duration.hours
+    event.description= @event.description
     event.summary = @event.description
     event.uid = event.url = event_url(@event)
     cal.add_event(event)
