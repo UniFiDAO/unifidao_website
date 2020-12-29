@@ -34,6 +34,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'icalendar', '~> 2.7'
 gem 'airbrake-ruby'
 gem 'redcarpet'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'letter_opener', '~> 1.7'
