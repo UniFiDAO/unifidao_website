@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :admins do
     get 'users', on: :collection
     get 'events', on: :collection
+    get 'teams', on: :collection
   end
 
   get 'welcome/index'

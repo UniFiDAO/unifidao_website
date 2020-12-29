@@ -9,6 +9,10 @@ class AdminsController < ApplicationController
     @events = Event.all
   end
 
+  def teams
+    @teams = Team.all
+  end
+
   # # GET /admins
   # # GET /admins.json
   # def index

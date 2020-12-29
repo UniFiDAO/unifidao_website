@@ -4,7 +4,8 @@
       <table class="table">
         <thead>
         <tr>
-          <th scope="col" width="80%">User</th>
+          <th scope="col" width="40%">User</th>
+          <th scope="col" width="40%">Team</th>
           <th scope="col">&nbsp;</th>
           <th scope="col">&nbsp;</th>
         </tr>
@@ -12,7 +13,8 @@
         <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= link_to user.name, user %></td>
+            <td><%= link_to user.email, user %></td>
+            <td><% if user.team %><%= link_to user.team.name, user.team %><% end %></td>
             <td><%= link_to 'Edit', edit_user_path(user) %></td>
             <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>

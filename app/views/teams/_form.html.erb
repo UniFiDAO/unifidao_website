@@ -1,0 +1,26 @@
+<%
+  text = 'team'
+  form = "form.#{ text }"
+%>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <br>
+      <h1><%= text.capitalize %> Registration</h1>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <%= render text, team: team %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <%= render form, team: team %>
+    </div>
+  </div>
+</div>
+
