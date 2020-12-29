@@ -53,11 +53,11 @@
       <div class="card">
         <div class="card-body">
           <h3><%= @user.name %></h3>
-          <% if @user.website %><h4><%= link_to 'Website', @user.website %></h4><% end %>
+          <% if @user.website %><h4><%= link_to 'Website', @user.website, :target => "_blank" %></h4><% end %>
           <% if @user.partner %><h4>Partner: <%= @user.partner %></h4><% end %>
-          <% if @user.linkedin %><h4><%= link_to 'LinkedIn', @user.linkedin %></h4><% end %>
-          <% if @user.twitter %><h4><%= link_to 'Twitter', @user.twitter %></h4><% end %>
-          <% if @user.telegram %><h4><%= link_to 'Telegram', @user.telegram %></h4><% end %>
+          <% if @user.linkedin %><h4><%= link_to 'LinkedIn', @user.linkedin, :target => "_blank" %></h4><% end %>
+          <% if @user.twitter %><h4><%= link_to 'Twitter', @user.twitter, :target => "_blank" %></h4><% end %>
+          <% if @user.telegram %><h4><%= link_to 'Telegram', @user.telegram, :target => "_blank" %></h4><% end %>
         </div>
       </div>
       <% unless user_signed_in? %>

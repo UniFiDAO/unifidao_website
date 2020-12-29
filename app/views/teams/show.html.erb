@@ -53,9 +53,9 @@
       <div class="card">
         <div class="card-body">
           <h3><%= @team.name %></h3>
-          <% if @team.website %><h4><%= link_to 'Website', @team.website %></h4><% end %>
-          <% if @team.twitter %><h4><%= link_to 'Twitter', @team.twitter %></h4><% end %>
-          <% if @team.telegram %><h4><%= link_to 'Telegram', @team.telegram %></h4><% end %>
+          <% if @team.website %><h4><%= link_to 'Website', @team.website, :target => "_blank" %></h4><% end %>
+          <% if @team.twitter %><h4><%= link_to 'Twitter', @team.twitter, :target => "_blank" %></h4><% end %>
+          <% if @team.telegram %><h4><%= link_to 'Telegram', @team.telegram, :target => "_blank" %></h4><% end %>
         </div>
       </div>
       <% unless user_signed_in? %>
