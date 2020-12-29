@@ -93,6 +93,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.10.4, rbenv: 2.7.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.10.1, rbenv: 2.7.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rbtree3 (v0.6.0, rbenv: 2.7.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="redcarpet (v3.5.1, rbenv: 2.7.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v1.8.2, rbenv: 2.7.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v3.0.1, rbenv: 2.7.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.3.0, rbenv: 2.7.0) [gem]" level="application" />
