@@ -41,6 +41,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    unless @user
+      flash[:alert] = "We can not find account"
+      return redirect_back fallback_location: root_path
+    end
+
     respond_to do |format|
       if @user&.update(user_params)
 
