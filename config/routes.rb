@@ -22,12 +22,17 @@ Rails.application.routes.draw do
       passwords: 'users/passwords'
   }
 
-  resources :users, :path => :teams, as: :users
-  #resources :teams, as: :users
+  resources :users
+
+  resources :teams do
+    get 'should_join', on: :member
+    get 'join_team', on: :member
+    get 'new_team', on: :collection
+  end
 
   root 'welcome#index'
 
   devise_scope :user do
-    get '/users/sign_out', to: 'devise/sessions#destroy'
+    get '/sign_out', to: 'devise/sessions#destroy'
   end
 end

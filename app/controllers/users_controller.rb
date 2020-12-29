@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.team
+    @users = Team.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    #redirect_to root_path unless @user
   end
 
   # GET /users/new
@@ -42,6 +43,17 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+
+        unless @user.team
+          @team = Team.find_by(name: @user.name)
+
+          if @team
+            return redirect_to should_join_team_path(@team)
+          else
+            @user.join_team
+          end
+        end
+
         return redirect_to users_admins_path if current_user_admin?
         format.html { redirect_to events_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
@@ -66,7 +78,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.friendly.find(params[:id])
+      @user = User.friendly.find_by(id: params[:id]) || current_user
     end
 
     # Only allow a list of trusted parameters through.

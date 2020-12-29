@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_020648) do
+ActiveRecord::Schema.define(version: 2020_12_29_054315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(version: 2020_12_14_020648) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "teams", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "website"
+    t.string "twitter"
+    t.string "telegram"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_teams_on_slug", unique: true
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -87,6 +98,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_020648) do
     t.string "twitter"
     t.string "telegram"
     t.string "slug"
+    t.uuid "team_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true
