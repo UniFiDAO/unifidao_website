@@ -3,6 +3,7 @@ class Team < ApplicationRecord
 
   friendly_id :name, use: :slugged
   has_one_attached :logo
+  accepts_nested_attributes_for :logo_attachment, allow_destroy: true
 
   has_many :users
 

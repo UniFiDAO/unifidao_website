@@ -30,6 +30,8 @@ class TeamsController < ApplicationController
   end
 
   def update
+    @team.logo.purge
+    @team.save
     respond_to do |format|
       if @team.update(team_params)
         return redirect_to teams_admins_path if current_user_admin?
@@ -59,6 +61,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit( :name,  :website, :twitter, :telegram, :logo)
+    params.require(:team).permit! #.permit( :name,  :website, :twitter, :telegram, :logo, logo_attachment_attributes: [:id, :_destroy])
   end
 end
