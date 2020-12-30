@@ -30,8 +30,6 @@ class TeamsController < ApplicationController
   end
 
   def update
-    @team.logo.purge
-    @team.save
     respond_to do |format|
       if @team.update(team_params)
         return redirect_to teams_admins_path if current_user_admin?
