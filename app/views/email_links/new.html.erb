@@ -9,8 +9,7 @@
       <br><br>
     <%= form_with(url: email_links_path, method: :post) do %>
       <%= email_field_tag :email, nil, placeholder:"example@gmail.com", autofocus: true, required: true, class: "form-control", style: "width:50%;" %><br>
-      <%#= submit_tag "Sign in with email!", class: 'btn btn-primary btn-lg', 'data-no-turbolink' => true %>
-        <input type="submit" value="Sign in with email!" class="btn btn-primary btn-lg" onclik="">
+      <%= submit_tag "Sign in with email!", class: 'btn btn-primary btn-lg', 'data-no-turbolink' => true %>
     <% end %>
     </div>
   </div>
