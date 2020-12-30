@@ -50,12 +50,21 @@
       <% end %>
     </div>
     <div class="col-lg-6">
+      <% if @team.description %>
+        <div class="card">
+          <div class="card-body">
+            <h2><%= @team.description.gsub(/(?:\n\r?|\r\n?)/, '<br>').html_safe %></h2>
+          </div>
+        </div>
+      <% end %>
       <div class="card">
         <div class="card-body">
-          <h3><%= @team.name %></h3>
           <% if @team.website %><h4><%= link_to 'Website', @team.website.to_http, :target => "_blank" %></h4><% end %>
           <% if @team.twitter %><h4><%= link_to 'Twitter', @team.twitter.to_http, :target => "_blank" %></h4><% end %>
           <% if @team.telegram %><h4><%= link_to 'Telegram', @team.telegram.to_http, :target => "_blank" %></h4><% end %>
+          <% if @team.discord %><h4><%= link_to 'Discord', @team.telegram.to_http, :target => "_blank" %></h4><% end %>
+          <% if @team.github %><h4><%= link_to 'Github', @team.github.to_http, :target => "_blank" %></h4><% end %>
+          <% if @team.uniswap_pool %><h4><%= link_to 'Uniwap Pool', @team.uniswap_pool.to_http, :target => "_blank" %></h4><% end %>
         </div>
       </div>
       <% unless user_signed_in? %>

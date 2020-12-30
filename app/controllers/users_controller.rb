@@ -55,7 +55,7 @@ class UsersController < ApplicationController
           if @team
             return redirect_to should_join_team_path(@team)
           else
-            @user.join_team
+            @user.create_team
           end
         end
 
@@ -88,6 +88,18 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:user_type, :name, :fund, :website, :partner, :linkedin, :twitter, :telegram, :logo)
+      params.require(:user).permit(:user_type,
+                                   :name,
+                                   :fund,
+                                   :website,
+                                   :partner,
+                                   :linkedin,
+                                   :twitter,
+                                   :telegram,
+                                   :logo,
+                                   :discord,
+                                   :github,
+                                   :uniswap_pool,
+                                   :description)
     end
 end

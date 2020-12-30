@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :email_links, dependent: :delete_all
   belongs_to :team, optional: true
 
+  validates_length_of :description, :maximum => 1000
+
 
   validates_presence_of :user_type, message: 'Please choose a team type.'
 
@@ -22,6 +24,12 @@ class User < ApplicationRecord
   def create_team
     team = Team.find_or_create_by(name: name)
     update(team_id: team.id)
-    team.update(website: website, twitter: twitter, telegram: telegram)
+    team.update(website: website,
+                twitter: twitter,
+                telegram: telegram,
+                discord: discord,
+                github: github,
+                uniswap_pool: uniswap_pool,
+                description: description)
   end
 end

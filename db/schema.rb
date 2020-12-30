@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_181234) do
+ActiveRecord::Schema.define(version: 2020_12_30_214120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -79,6 +79,10 @@ ActiveRecord::Schema.define(version: 2020_12_30_181234) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+    t.string "discord"
+    t.string "github"
+    t.string "uniswap_pool"
+    t.string "description"
     t.index ["slug"], name: "index_teams_on_slug", unique: true
   end
 
@@ -100,6 +104,10 @@ ActiveRecord::Schema.define(version: 2020_12_30_181234) do
     t.string "telegram"
     t.string "slug"
     t.uuid "team_id"
+    t.string "discord"
+    t.string "github"
+    t.string "uniswap_pool"
+    t.string "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

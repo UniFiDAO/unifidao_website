@@ -7,6 +7,8 @@ class Team < ApplicationRecord
 
   has_many :users
 
+  validates_length_of :description, :maximum => 1000
+
   def logo_image
     return logo if logo.attached?
 
