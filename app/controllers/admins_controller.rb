@@ -2,7 +2,9 @@ class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
   def users
-    @users = User.all
+    return @users = User.team if params[:type].nil?
+
+    @users = User.where(user_type: params[:type])
   end
 
   def events
