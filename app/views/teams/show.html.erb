@@ -62,7 +62,7 @@
           <% if @team.website %><h4><%= link_to 'Website', @team.website.to_http, :target => "_blank" %></h4><% end %>
           <% if @team.twitter %><h4><%= link_to 'Twitter', @team.twitter.to_http, :target => "_blank" %></h4><% end %>
           <% if @team.telegram %><h4><%= link_to 'Telegram', @team.telegram.to_http, :target => "_blank" %></h4><% end %>
-          <% if @team.discord %><h4><%= link_to 'Discord', @team.telegram.to_http, :target => "_blank" %></h4><% end %>
+          <% if @team.discord %><h4><%= link_to 'Discord', @team.discord.to_http, :target => "_blank" %></h4><% end %>
           <% if @team.github %><h4><%= link_to 'Github', @team.github.to_http, :target => "_blank" %></h4><% end %>
           <% if @team.uniswap_pool %><h4><%= link_to 'Uniswap Pool', @team.uniswap_pool.to_http, :target => "_blank" %></h4><% end %>
         </div>
