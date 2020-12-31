@@ -49,13 +49,15 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user&.update(user_params)
 
-        unless @user.team
-          @team = Team.find_by(name: @user.name)
+        if @user.user_type == "team"
+          unless @user.team
+            @team = Team.find_by(name: @user.name)
 
-          if @team
-            return redirect_to should_join_team_path(@team)
-          else
-            @user.create_team
+            if @team
+              return redirect_to should_join_team_path(@team)
+            else
+              @user.create_team
+            end
           end
         end
 
