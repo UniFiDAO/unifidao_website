@@ -4,4 +4,8 @@ class String
 
     "http://" + self
   end
+
+  def to_you_tube_id
+    self.split("?v=")[1]
+  end
 end

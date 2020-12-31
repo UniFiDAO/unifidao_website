@@ -11,8 +11,14 @@
   <div class="row" style="background-color: #ddd;padding: 20px;">
 
     <div class="col-lg-6"  >
-      <% if @event.logo.attached? %>
-        <%= image_tag @event.logo, width: "100%" %>
+      <% unless @event.you_tube.blank? %>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/<%= @event.you_tube.to_you_tube_id %>" allowfullscreen></iframe>
+        </div>
+      <% else %>
+        <% if @event.logo.attached? %>
+          <%= image_tag @event.logo, width: "100%" %>
+        <% end %>
       <% end %>
     </div>
     <div class="col-lg-6">
