@@ -58,6 +58,8 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airbrake (11.0.1)
+      airbrake-ruby (~> 5.1)
     airbrake-ruby (5.1.1)
       rbtree3 (~> 0.5)
     autoprefixer-rails (10.0.3.0)
@@ -236,7 +238,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake-ruby
+  airbrake
   bootsnap (>= 1.4.2)
   bootstrap (~> 5.0.0.alpha3)
   byebug

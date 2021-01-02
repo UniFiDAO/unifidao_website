@@ -81,4 +81,8 @@ Rails.application.configure do
     }
     config.action_mailer.smtp_settings = smtp_settings
   end
+
+  config.after_initialize do
+    Rails.logger = Airbrake::AirbrakeLogger.new(Rails.logger)
+  end
 end
