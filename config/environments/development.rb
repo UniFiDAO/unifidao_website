@@ -80,9 +80,9 @@ Rails.application.configure do
         password: ENV["GMAIL_PASSWORD"]
     }
     config.action_mailer.smtp_settings = smtp_settings
-  end
 
-  config.after_initialize do
-    Rails.logger = Airbrake::AirbrakeLogger.new(Rails.logger)
+    config.after_initialize do
+      Rails.logger = Airbrake::AirbrakeLogger.new(Rails.logger)
+    end
   end
 end
