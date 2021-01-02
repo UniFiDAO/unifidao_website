@@ -1,45 +1,12 @@
-
-<%# @team.name %>
-
-<%# if @team.logo.attached? %>
-  <%#= image_tag @team.logo %>
-<%# end %>
-
-
-
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col-lg-12">-->
-<!--      <br>-->
-<!--      <hr>-->
-<!--      <h1><%#= @team.name %></h1>-->
-<!--      <br>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="row">-->
-<!--    <div class="col-lg-6">-->
-      <%# if @team.logo.attached? %>
-        <%#= image_tag @team.logo %>
-      <%# end %>
-<!--    </div>-->
-<!--    <div class="col-lg-6">-->
-<!--      <h3><%#= @team.fund %></h3>-->
-<!--      <h3><%#= @team.website %></h3>-->
-<!--      <h3><%#= @team.partner %></h3>-->
-<!--      <h3><%#= @team.linkedin %></h3>-->
-<!--      <h3><%#= @team.twitter %></h3>-->
-<!--      <h3><%#= @team.telegram %></h3>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
       <br>
       <hr>
       <h1><%= @team.name %></h1>
+      <% if @team.users.find_by id: current_user.id %>
+      <h3><%= link_to 'Edit', edit_team_path(@team) %></h3>
+      <% end %>
       <br>
     </div>
   </div>

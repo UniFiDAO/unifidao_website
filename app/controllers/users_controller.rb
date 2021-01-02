@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    #redirect_to root_path unless @user
+    redirect_to team_path(@user.team) if @user.team
   end
 
   # GET /users/new
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    redirect_back fallback_location: root_path unless current_user_admin? || (@user.id == current_user.id)
   end
 
   # POST /users
@@ -41,6 +42,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    redirect_back fallback_location: root_path unless current_user_admin? || (@user.id == current_user.id)
+
     unless @user
       flash[:alert] = "We can not find account"
       return redirect_back fallback_location: root_path
@@ -85,7 +88,9 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.friendly.find_by(id: params[:id]) || User.find_by(slug: params[:id])
+      @user = User.friendly.find_by(id: params[:id])
+      @user ||= User.find_by(slug: params[:id])
+      @user ||= User.find_by id: params[:id]
     end
 
     # Only allow a list of trusted parameters through.

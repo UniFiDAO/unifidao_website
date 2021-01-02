@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
-
+    redirect_back fallback_location: root_path unless current_user_admin? || current_user.team == @team
   end
 
   def join_team
@@ -30,6 +30,8 @@ class TeamsController < ApplicationController
   end
 
   def update
+    redirect_back fallback_location: root_path unless current_user_admin? || current_user.team == @team
+
     respond_to do |format|
       if @team.update(team_params)
         return redirect_to teams_admins_path if current_user_admin?
@@ -45,7 +47,7 @@ class TeamsController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    #@user.email_links.destroy_all
+    redirect_back fallback_location: root_path unless current_user_admin?
     @team.destroy
     respond_to do |format|
       format.html { redirect_back fallback_location: users_url, notice: 'User was successfully destroyed.' }
