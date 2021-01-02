@@ -4,7 +4,7 @@
       <br>
       <hr>
       <h1><%= @user.name %></h1>
-      <% if @user.id == current_user.id %>
+      <% if user_signed_in? && (@user.id == current_user.id) %>
         <h2><%= link_to 'Edit', edit_user_path(@user) %></h2>
       <% end %>
       <br>
