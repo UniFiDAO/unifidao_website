@@ -1,7 +1,7 @@
 <%= form_with(model: admin, local: true) do |form| %>
   <% if admin.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+      <h1><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h1>
 
       <ul>
         <% admin.errors.full_messages.each do |message| %>

@@ -4,7 +4,7 @@
       <br>
       <h1>Upcoming Events</h1>
       <% if current_user&.admin? %>
-        <h2><%= link_to 'New Event', new_event_path %></h2>
+        <h1><%= link_to 'New Event', new_event_path %></h1>
       <% end %>
       <br>
     </div>
@@ -14,10 +14,10 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h2><%= link_to event.title, event %><span style="float:right"><%= event.starts_at.strftime("%A, %B %e") %></span></h2>
+            <h1><%= link_to event.title, event %><span style="float:right"><%= event.starts_at.strftime("%A, %B %e") %></span></h1>
           </div>
           <ul class="list-group">
-            <li class="list-group-item"><h4><%= markdown(event.description) %></h4></li>
+            <li class="list-group-item"><h3><%= markdown(event.description) %></h3></li>
           </ul>
         </div>
       </div>

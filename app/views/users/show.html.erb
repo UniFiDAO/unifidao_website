@@ -5,7 +5,7 @@
       <hr>
       <h1><%= @user.name %></h1>
       <% if @user.id == current_user.id %>
-        <h3><%= link_to 'Edit', edit_user_path(@user) %></h3>
+        <h2><%= link_to 'Edit', edit_user_path(@user) %></h2>
       <% end %>
       <br>
     </div>
@@ -19,12 +19,12 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-body">
-          <h3><%= @user.name %></h3>
-          <% if @user.website %><h4><%= link_to 'Website', @user.website.to_http, :target => "_blank" %></h4><% end %>
-          <% if @user.partner %><h4>Partner: <%= @user.partner %></h4><% end %>
-          <% if @user.linkedin %><h4><%= link_to 'LinkedIn', @user.linkedin.to_http, :target => "_blank" %></h4><% end %>
-          <% if @user.twitter %><h4><%= link_to 'Twitter', @user.twitter.to_http, :target => "_blank" %></h4><% end %>
-          <% if @user.telegram %><h4><%= link_to 'Telegram', @user.telegram.to_http, :target => "_blank" %></h4><% end %>
+          <h2><%= @user.name %></h2>
+          <% if @user.website %><h3><%= link_to 'Website', @user.website.to_http, :target => "_blank" %></h3><% end %>
+          <% if @user.partner %><h3>Partner: <%= @user.partner %></h3><% end %>
+          <% if @user.linkedin %><h3><%= link_to 'LinkedIn', @user.linkedin.to_http, :target => "_blank" %></h3><% end %>
+          <% if @user.twitter %><h3><%= link_to 'Twitter', @user.twitter.to_http, :target => "_blank" %></h3><% end %>
+          <% if @user.telegram %><h3><%= link_to 'Telegram', @user.telegram.to_http, :target => "_blank" %></h3><% end %>
         </div>
       </div>
       <% unless user_signed_in? %>

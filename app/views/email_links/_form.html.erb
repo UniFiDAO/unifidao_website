@@ -1,7 +1,7 @@
 <%= form_with(model: email_link, local: true) do |form| %>
   <% if email_link.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(email_link.errors.count, "error") %> prohibited this email_link from being saved:</h2>
+      <h1><%= pluralize(email_link.errors.count, "error") %> prohibited this email_link from being saved:</h1>
 
       <ul>
         <% email_link.errors.full_messages.each do |message| %>

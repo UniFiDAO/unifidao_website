@@ -4,7 +4,7 @@
       <br>
       <h1>Teams</h1>
       <%# if current_user&.admin? %>
-<!--        <h2><%#= link_to 'New Team', new_team_path %></h2>-->
+<!--        <h1><%#= link_to 'New Team', new_team_path %></h1>-->
       <%# end %>
       <br>
     </div>
@@ -15,7 +15,7 @@
         <div class="card">
           <ul class="list-group">
             <% @teams.each do |team| %>
-              <li class="list-group-item"><h4><%= link_to team.name, team_path(team) %></h4></li>
+              <li class="list-group-item"><h3><%= link_to team.name, team_path(team) %></h3></li>
             <% end %>
           </ul>
         </div>

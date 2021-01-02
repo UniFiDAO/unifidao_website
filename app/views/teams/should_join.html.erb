@@ -23,12 +23,12 @@
 <%# end %>
 <!--    </div>-->
 <!--    <div class="col-lg-6">-->
-<!--      <h3><%#= @team.fund %></h3>-->
-<!--      <h3><%#= @team.website %></h3>-->
-<!--      <h3><%#= @team.partner %></h3>-->
-<!--      <h3><%#= @team.linkedin %></h3>-->
-<!--      <h3><%#= @team.twitter %></h3>-->
-<!--      <h3><%#= @team.telegram %></h3>-->
+<!--      <h2><%#= @team.fund %></h2>-->
+<!--      <h2><%#= @team.website %></h2>-->
+<!--      <h2><%#= @team.partner %></h2>-->
+<!--      <h2><%#= @team.linkedin %></h2>-->
+<!--      <h2><%#= @team.twitter %></h2>-->
+<!--      <h2><%#= @team.telegram %></h2>-->
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
@@ -52,17 +52,17 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-body">
-          <h3><%= @team.name %></h3>
-          <% if @team.website %><h4><%= link_to 'Website', @team.website %></h4><% end %>
-          <% if @team.twitter %><h4><%= link_to 'Twitter', @team.twitter %></h4><% end %>
-          <% if @team.telegram %><h4><%= link_to 'Telegram', @team.telegram %></h4><% end %>
+          <h2><%= @team.name %></h2>
+          <% if @team.website %><h3><%= link_to 'Website', @team.website %></h3><% end %>
+          <% if @team.twitter %><h3><%= link_to 'Twitter', @team.twitter %></h3><% end %>
+          <% if @team.telegram %><h3><%= link_to 'Telegram', @team.telegram %></h3><% end %>
         </div>
       </div>
 
       <div class="card">
         <div class="card-body">
         <center>
-          <h2>This Team Already Exists. Join or Create a New Team.</h2>
+          <h1>This Team Already Exists. Join or Create a New Team.</h1>
           <br><br>
           <div class="row">
             <div class="col-lg-6">
