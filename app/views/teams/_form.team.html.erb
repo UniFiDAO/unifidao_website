@@ -29,7 +29,8 @@
 
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description,  class: "form-control", style: "width:300px;", rows: "3" %>
+    <%= f.text_area :description,  class: "form-control", style: "width:300px;", rows: "3" ,onkeyup: "countChars('data','charcount');", onkeydown: "countChars('data','charcount');", onmouseout:"countChars('data','charcount');", id: 'data' %>
+    <span id="charcount">1000</span> characters left.
   </div>
 
   <div class="field">
@@ -42,3 +43,16 @@
   </div>
 
 <% end %>
+
+<script type="text/javascript">
+    function countChars(countfrom,displayto) {
+        var len = document.getElementById(countfrom).value.length;
+        document.getElementById(displayto).innerHTML = 1000 - len;
+    }
+
+    window.addEventListener("load", function(){
+        countChars('data','charcount');
+    });
+
+    countChars('data','charcount');
+</script>
