@@ -26,12 +26,12 @@
       <% end %>
       <div class="card">
         <div class="card-body">
-          <% if @team.website %><h3><%= link_to 'Website', @team.website.to_http, :target => "_blank" %></h3><% end %>
-          <% if @team.twitter %><h3><%= link_to 'Twitter', @team.twitter.to_http, :target => "_blank" %></h3><% end %>
-          <% if @team.telegram %><h3><%= link_to 'Telegram', @team.telegram.to_http, :target => "_blank" %></h3><% end %>
-          <% if @team.discord %><h3><%= link_to 'Discord', @team.discord.to_http, :target => "_blank" %></h3><% end %>
-          <% if @team.github %><h3><%= link_to 'Github', @team.github.to_http, :target => "_blank" %></h3><% end %>
-          <% if @team.uniswap_pool %><h3><%= link_to 'Uniswap Pool', @team.uniswap_pool.to_http, :target => "_blank" %></h3><% end %>
+          <% unless @team.website.blank? %><h3><%= link_to 'Website', @team.website.to_http, :target => "_blank" %></h3><% end %>
+          <% unless @team.twitter.blank? %><h3><%= link_to 'Twitter', @team.twitter.to_http, :target => "_blank" %></h3><% end %>
+          <% unless @team.telegram.blank? %><h3><%= link_to 'Telegram', @team.telegram.to_http, :target => "_blank" %></h3><% end %>
+          <% unless @team.discord.blank? %><h3><%= link_to 'Discord', @team.discord.to_http, :target => "_blank" %></h3><% end %>
+          <% unless @team.github.blank? %><h3><%= link_to 'Github', @team.github.to_http, :target => "_blank" %></h3><% end %>
+          <% unless @team.uniswap_pool.blank? %><h3><%= link_to 'Uniswap Pool', @team.uniswap_pool.to_http, :target => "_blank" %></h3><% end %>
         </div>
       </div>
       <% unless user_signed_in? %>
