@@ -25,7 +25,7 @@
       <div class="card">
         <div class="card-body">
           <%= @event.starts_at.strftime("%A, %B %e") %><br>
-          <%= @event.starts_at.strftime("%l:%M %p") %> to <%= (@event.starts_at + @event.duration.hours).strftime("%l:%M %p") %><br>
+          <%= @event.starts_at.strftime("%l:%M %p") %> PST to <%= (@event.starts_at + @event.duration.hours).strftime("%l:%M %p") %> PST <br>
           <%= link_to "Add to Calender", ical_event_url(@event, protocol: :webcal, format: :ics) , format: :ics %>
         </div>
       </div>
