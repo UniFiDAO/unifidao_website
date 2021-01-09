@@ -32,4 +32,16 @@ class User < ApplicationRecord
                 uniswap_pool: uniswap_pool,
                 description: description)
   end
+
+  def self.to_csv
+    attributes = %w{id email name website partner linkedin twitter}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |user|
+        csv << attributes.map{ |attr| user.send(attr) }
+      end
+    end
+  end
 end
