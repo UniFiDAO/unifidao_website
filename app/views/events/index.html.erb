@@ -26,6 +26,20 @@
   <% end %>
 </div>
 
+<div class="container">
+  <div class="row">
+    <% User.find(User.team.joins(:logo_attachment).where.not(name: nil).pluck(:id).sample(6)).each do |user|%>
+      <div class="col-2">
+        <h3 class="disable"><%= link_to user&.team&.name || user.name, user_path(user) %></h3>
+
+        <% if user.logo.attached? %>
+          <%= link_to(image_tag(user.logo, width: "100%"), user_path(user), style: 'text-decoration: none;border: 0;', class: 'imglink') %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br><br><br>
 
 <!--<p id="notice"><%#= notice %></p>-->
 
