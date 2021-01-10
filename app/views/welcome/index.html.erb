@@ -21,6 +21,20 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <% User.find(User.team.where.not(name: nil).pluck(:id).sample(6)).each do |user|%>
+      <div class="col-2">
+          <h3><%= link_to user&.team&.name || user.name, user_path(user) %></h3>
+          <% if user.logo.attached? %>
+            <%= image_tag user.logo, width: "100%" %>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 <%# if user_signed_in? %>
 <!--  <p>Hello, <%#= current_user.email %></p>-->
   <%#= link_to "Profile", edit_user_path(current_user) %>
