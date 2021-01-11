@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_31_050706) do
+ActiveRecord::Schema.define(version: 2021_01_10_232144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_050706) do
     t.string "github"
     t.string "uniswap_pool"
     t.string "description"
+    t.string "you_tube"
     t.index ["slug"], name: "index_teams_on_slug", unique: true
   end
 

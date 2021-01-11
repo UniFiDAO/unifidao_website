@@ -28,6 +28,10 @@
   </div>
 
   <div class="field">
+    <%= f.text_field :you_tube, class: "form-control", style: "width:300px;", placeholder: "YouTube presentation" %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description,  class: "form-control", style: "width:300px;", rows: "3" ,onkeyup: "countChars('data','charcount');", onkeydown: "countChars('data','charcount');", onmouseout:"countChars('data','charcount');", id: 'data' %>
     <span id="charcount">1000</span> characters left.
