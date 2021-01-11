@@ -46,16 +46,18 @@
 </div>
 
 <br><br>
+<% team_found = 0 %>
 <div class="container">
   <div class="row">
-    <% Team.find(Team.joins(:logo_attachment).where.not(name: nil).pluck(:id).sample(6)).each do |team|%>
-      <div class="col-2">
-        <h3 class="disable"><%= link_to team.name, team_path(team) %></h3>
-
-        <% if team.logo.attached? %>
-          <%= link_to(image_tag(team.logo, width: "100%"), team_path(team), style: 'text-decoration: none;border: 0;', class: 'imglink') %>
-        <% end %>
-      </div>
+    <% Team.find(Team.all.select(:id).collect {|x| x.id }.shuffle).each do |team|%>
+      <% if team.logo_image %>
+        <% team_found +=1  %>
+        <div class="col-2">
+          <h3 class="disable"><%= link_to team.name, team_path(team) %></h3>
+          <%= link_to(image_tag(team.logo_image, width: "100%"), team_path(team), style: 'text-decoration: none;border: 0;', class: 'imglink') %>
+        </div>
+        <% break if team_found == 6 %>
+      <% end %>
     <% end %>
   </div>
 </div>
