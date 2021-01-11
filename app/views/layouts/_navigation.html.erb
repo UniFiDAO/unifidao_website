@@ -7,7 +7,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav mr-auto">
         <% if user_signed_in? %>
-          <li class='nav-item'><%= link_to (current_user&.name || "Profile"), user_path(current_user), class: 'nav-link'  %></li>
+          <% if current_user.team %>
+            <li class='nav-item'><%= link_to (current_user.team&.name || "Profile"), team_path(current_user.team), class: 'nav-link'  %></li>
+          <% else %>
+            <li class='nav-item'><%= link_to (current_user&.name || "Profile"), user_path(current_user), class: 'nav-link'  %></li>
+          <% end %>
           <li class='nav-item'><%= link_to "Events", events_path, class: 'nav-link'  %></li>
           <li class='nav-item'><%= link_to "Teams", teams_path, class: 'nav-link'  %></li>
           <li class='nav-item'><%= link_to "Community", "https://t.me/unificosmos", class: 'nav-link', target: :_blank  %></li>

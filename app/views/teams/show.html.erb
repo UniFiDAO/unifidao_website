@@ -5,7 +5,7 @@
       <hr>
       <h1><%= @team.name %></h1>
       <% if user_signed_in? && @team.users.find_by(id: current_user.id) %>
-      <h2><%= link_to 'Edit', edit_team_path(@team) %></h2>
+        <h2><%= link_to 'Edit', edit_team_path(@team) %></h2>
       <% end %>
       <br>
     </div>
