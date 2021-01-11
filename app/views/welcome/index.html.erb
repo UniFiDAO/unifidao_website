@@ -23,22 +23,22 @@
   </div>
 </div>
 
-<% team_found = 0 %>
-  <div class="container">
-    <div class="row">
-      <% Team.find(Team.all.sample(Team.all.count)).each do |team|%>
-        <% if team.logo.attached? %>
-          <% team_found +=1  %>
-          <div class="col-2">
-              <h3 class="disable"><%= link_to team.name, team_path(team) %></h3>
-              <%= link_to(image_tag(team.logo, width: "100%"), team_path(team), style: 'text-decoration: none;border: 0;', class: 'imglink') %>
-          </div>
-          <% break if team_found == 6 %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-<br><br><br>
+<%# team_found = 0 %>
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+      <%# Team.find(Team.all.sample(Team.all.count)).each do |team|%>
+        <%# if team.logo.attached? %>
+          <%# team_found +=1  %>
+<!--          <div class="col-2">-->
+<!--              <h3 class="disable"><%#= link_to team.name, team_path(team) %></h3>-->
+              <%#= link_to(image_tag(team.logo, width: "100%"), team_path(team), style: 'text-decoration: none;border: 0;', class: 'imglink') %>
+<!--          </div>-->
+          <%# break if team_found == 6 %>
+        <%# end %>
+      <%# end %>
+<!--    </div>-->
+<!--  </div>-->
+<!--<br><br><br>-->
 
 <%# if user_signed_in? %>
 <!--  <p>Hello, <%#= current_user.email %></p>-->
