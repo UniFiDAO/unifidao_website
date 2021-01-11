@@ -19,7 +19,7 @@
           </div><br>
         <% end %>
       <% end %>
-      <% if @team.logo_image %>
+      <% if @team.logo_image.attached? %>
         <%= image_tag @team.logo_image, width: "100%" %>
       <% end %>
     </div>
