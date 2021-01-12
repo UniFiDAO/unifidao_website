@@ -1,4 +1,6 @@
 #require 'icalendar'
+require 'icalendar/tzinfo'
+require 'tzinfo'
 
 class EventsController < ApplicationController
 
@@ -19,16 +21,24 @@ class EventsController < ApplicationController
 
   def ical
     cal = Icalendar::Calendar.new
+
+    tzid = "America/Los_Angeles"
+    # tz = TZInfo::Timezone.get tzid
+    # timezone = tz.ical_timezone event_start
+    # cal.add_timezone timezone
+
     event = Icalendar::Event.new
-    event.dtstart = @event.starts_at
-    event.dtend =@event.starts_at + @event.duration.hours
+    event.dtstart = Icalendar::Values::DateTime.new @event.starts_at, 'tzid' => tzid
+    event.dtend = Icalendar::Values::DateTime.new (@event.starts_at + @event.duration.hours), 'tzid' => tzid
     event.description= @event.description
     event.summary = @event.description
     event.uid = event.url = event_url(@event)
     cal.add_event(event)
     cal.publish
 
-    render plain:  cal.to_ical
+    ical_event = cal.to_ical.split("\n")
+    #.join("\n")
+    render plain:  ical_event.join("\n")
     #send_data cal.to_ical, type: 'ical', disposition: 'inline', filename: 'event.ical'
   end
 
