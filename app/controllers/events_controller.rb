@@ -28,6 +28,7 @@ class EventsController < ApplicationController
     timezone = tz.ical_timezone event_start
     cal.add_timezone timezone
 
+
     event = Icalendar::Event.new
     event.dtstart = Icalendar::Values::DateTime.new @event.starts_at.in_time_zone, 'tzid' => tzid
     event.dtend = Icalendar::Values::DateTime.new (@event.starts_at.in_time_zone + @event.duration.hours), 'tzid' => tzid
