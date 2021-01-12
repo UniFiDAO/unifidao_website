@@ -22,10 +22,11 @@ class EventsController < ApplicationController
   def ical
     cal = Icalendar::Calendar.new
 
+    event_start = @event.starts_at
     tzid = "America/Los_Angeles"
-    # tz = TZInfo::Timezone.get tzid
-    # timezone = tz.ical_timezone event_start
-    # cal.add_timezone timezone
+    tz = TZInfo::Timezone.get tzid
+    timezone = tz.ical_timezone event_start
+    cal.add_timezone timezone
 
     event = Icalendar::Event.new
     event.dtstart = Icalendar::Values::DateTime.new @event.starts_at, 'tzid' => tzid
