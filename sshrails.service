@@ -1,0 +1,15 @@
+[Unit]
+Description=sshrails
+
+[Service]
+Type=simple
+User=venture
+Group=venture
+WorkingDirectory=/home/venture/unifidao/website
+ExecStart=/bin/bash -lc '/home/venture/.rbenv/shims/bundle exec rails s -P tmp/ssh.pid -b "ssl://0.0.0.0:3000?key=/home/venture/unifidao/website/unifidao.vc/privkey1.pem&cert=/home/venture/unifidao/website/unifidao.vc/cert1.pem"'
+TimeoutSec=30
+RestartSec=15s
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
